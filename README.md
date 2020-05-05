@@ -12,6 +12,11 @@
 # Description
 threecon is a recon tool, which automates the boring process of recon. The tool is under constant development to suite my needs. There are many other and better tools out there, but I like to make my own stuff.
 
+# Features
+- subdomain bruteforcing with Sublist3r
+- checking if subdomains respond
+- taking a screenshot of each subdomain
+- directory bruteforcing of each subdomain
 # Installation
 
 # Usage
