@@ -18,22 +18,26 @@ echo -e "\033[31m
 "
 
 #create folder 
-
-now=`date +”%m/%d/%Y”`
-folder= "$now"
+today=$(date +"%Y-%m-%d")
+folder="3con-$today"
 echo -e "\033[0mCreating folder: $folder"
 mkdir $folder 
 
 
 #target site
 
-if [ "$1" == ""]
+if [ -z $1 ]; 
+then
     echo -e "\033[31mPlease target site as first argument!"
+    exit 0
 else
     echo -e "\033[31mTarget site: $1"
+fi
 
 #subdomains
-python /tools/r3/included_tools/sublister/sublist3r.py $1 > $folder/subdomain.txt
+echo -e "\033[34mBruteforcing subdomains: (this can take a while)"
+
+python /tools/r3/included_tools/sublister/sublist3r.py -d $1 > $folder/subdomain.txt
 touch $folder/subdomains.txt > $folder/subdomains.txt
 python onlysubdomains.py $folder $1
 rm $folder/subdomain.txt
@@ -44,5 +48,5 @@ while read p; do
 done <$folder/subdomains.txt
 
 #check if domains respond
-
+echo -e "\033[34mChecking if domains respond; green=response, red=no response: (this can take a while)"
 python responding_domains.py $folder
