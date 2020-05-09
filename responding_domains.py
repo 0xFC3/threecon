@@ -7,7 +7,10 @@ y = open(sys.argv[1]+'/not_responding_domains.txt', 'a')
 
 for line in f:
     try:
-        request = requests.get('http://'+line.strip())
+        url = 'http://'+line.strip().replace('www.','')
+        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+        request = requests.get(url, headers=headers)
+    
         if request.status_code == 200:
             g.write(line)
             print('\x1b[92m' + line)

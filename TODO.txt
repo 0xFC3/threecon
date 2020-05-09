@@ -1,6 +1,2 @@
--check if something is happening on subdomains
--take screenshot of all the subdomains
-
-
 -dir brute force for main domain
 -then also for each subdomain (maybe)

@@ -1,0 +1,4 @@
+www.globaltelcoconsult.com
+imap.globaltelcoconsult.com
+mail.globaltelcoconsult.com
+pop3.globaltelcoconsult.com
